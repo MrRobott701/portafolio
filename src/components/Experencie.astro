@@ -1,0 +1,59 @@
+---
+import ExperencieItem from "./ExperencieItem.astro";
+
+const EXPERIENCE = [
+    {
+        date: "Currently...",
+        title: "Freelance Web Developer",
+        description:
+            "Currently I work on client projects, such as static pages, web systems, web applications, designs for a user experience.",
+        link: "#",
+    },
+    {
+        title: "Car Rental Management System",
+        description:
+            "A car rental management system (owners/drivers/contracts/payments/documents in the cloud) is under development.",
+        link: "#",
+    },
+    
+    {
+        date: "September 2024 - Currently",
+        title: "IIDE",
+        description:
+            "I am currently studying my professional social service at the Institute of Educational Research and Development - UABC (IIDE), where I support and maintain servers and web systems.",
+        link: "#",
+    },
+    {
+                date: "",
+        title: "SupremoBOT",
+        description:
+            "A Discord virtual assistant responsible for managing music, security, and customization on users' servers.",
+        link: "#",
+    },
+
+    {
+        date: "December 2023 - January 2024.",
+        title: "Hotel La Costa ",
+        description:
+            "We worked for the company Hotel La Costa and during this time we developed a system for total hotel management.",
+        link: "https://costaensenada.com/",
+    },
+    {
+        date: "August 2023 - December 2023",
+        title: "Dog Breed Prediction",
+        description:
+            "A neural network system was developed that learned to detect dog breeds in images with 70% effectiveness.",
+        link: "",
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCE.map((experience) => (
+            <li class="mb-8 ms-4">
+                <ExperencieItem {...experience} />
+            </li>
+        ))
+    }
+</ol>
