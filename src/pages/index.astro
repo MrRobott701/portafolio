@@ -19,77 +19,89 @@ import Layout from "../layouts/Layout.astro";
 import AboutMe from "../components/AboutMe.astro";
 import SectionProject from "../components/SectionProject.astro";
 ---
-
 <Layout
     title="Portfolio - Ivan"
     description="Hire Ivan for web page creation and web application development, along with his UX design.">
     <main class="px-5">
-        <SectionContainer id="home" class="py-44 pb-24">
-            <h1
+        <!-- Grid container for left (home, experience) and right (projects) sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left column: Home (presentation) and Experience -->
+            <div>
+                <SectionContainer id="home" class=" pb-24">
+                    <h1
+                        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-6 pb-6 lg:pb-7">
+                        Hey, I'm Ivan <a
+                            href="https://www.linkedin.com/in/Ivan-francisco-merino-huizar-343b27293/"
+                            class="flex justify-center items-center"
+                            target="_blank"
+                            rel="noopener"
+                            class="flex justify-center items-center">
+                            <Bagde>Available for work</Bagde>
+                        </a>
+                    </h1>
+                    <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+                        <span class="text-pink-700/95">Web Developer</span> from Mexico,
+                        Specialized in creating unique web applications and UX/UI design.
+                    </h2>
+                    
+                    <ul>
+                        <nav class="flex gap-4 mt-2 flex-wrap">
+                          <SocialPill>
+                             <PhoneIcon class="size-4 md:size-6" />
+                            +52 646-160-9694
+                          </SocialPill>
+                          <SocialPill>
+                             <GmailIcon class="size-4 md:size-6" />
+                             jorge.perez56@uabc.edu.mx
+                          </SocialPill>
+                        </nav>
+                     </ul>
+                    <ul>
+                        <nav class="flex gap-4 mt-3 flex-wrap">
+                            <SocialPill href="https://discord.gg/FnTz8VGE">
+                                <DiscordIcon class="size-4 md:size-6" />
+                                Discord
+                            </SocialPill>
+                            <SocialPill href="mailto:jorge.perez56@uabc.edu.mx">
+                                <MailIcon class="size-4 md:size-6" />
+                                Enviar Correo
+                            </SocialPill>
+                           <SocialPill href="https://api.whatsapp.com/send?phone=6461609694">
+                                <WhatsappIcon class="size-4 md:size-6" />
+                                Whatsapp
+                            </SocialPill>
+                        </nav>
+                    </ul>
+                </SectionContainer>
+
+                <SectionContainer id="experience">
+                    <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+                        <MaletaIcon class="size-8" />
+                        Experience
+                    </h2>
+                    <EXPERENCIE />
+                </SectionContainer>
+            </div>
+
+            <!-- Right column: Projects -->
+            <div>
+                <h1
                 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-6 pb-6 lg:pb-7">
-                Hey, I'm Ivan <a
-                    href="https://www.linkedin.com/in/Ivan-francisco-merino-huizar-343b27293/"
-                    class="flex justify-center items-center"
-                    target="_blank"
-                    rel="noopener"
-                    class="flex justify-center items-center">
-                    <Bagde>Available for work</Bagde>
-                </a>
+                Projects
             </h1>
-            <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-                <span class="text-pink-700/95">Web Developer</span> from Mexico,
-                Specialized in creating unique web unique web applications and desing
-                UX/UI.
-            </h2>
-            
-            <ul>
-                <nav class="flex gap-4 mt-2 flex-wrap">
-                  <SocialPill>
-                     <PhoneIcon class="size-4 md:size-6" />
-                    +52 646-160-9694
-                  </SocialPill>
-                  <SocialPill>
-                     <GmailIcon class="size-4 md:size-6" />
-                     jorge.perez56@uabc.edu.mx
-                  </SocialPill>
-                </nav>
-             </ul>
-            <ul>
-                <nav class="flex gap-4 mt-3 flex-wrap">
-                    <SocialPill href="https://discord.gg/FnTz8VGE">
-                        <DiscordIcon class="size-4 md:size-6" />
-                        Discord
-                    </SocialPill>
-                    <SocialPill href="mailto:jorge.perez56@uabc.edu.mx">
-                        <MailIcon class="size-4 md:size-6" />
-                        Enviar Correo
-                    </SocialPill>
-                   <SocialPill href="https://api.whatsapp.com/send?phone=6461609694">
-                        <WhatsappIcon class="size-4 md:size-6" />
-                        Whatsapp
-                    </SocialPill>
-                </nav>
-            </ul>
-        </SectionContainer>
+                <SectionProject id="projects">
+                    <Projects />
+                </SectionProject>
+            </div>
+        </div>
 
-        <SectionContainer id="experience">
-            <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-                <MaletaIcon class="size-8" />
-                Experencie
-            </h2>
-            <EXPERENCIE />
-        </SectionContainer>
-
-        <SectionProject id="projects">
-            <Projects />
-        </SectionProject>
-
-        <SectionContainer id="about-me">
+        <!-- Full width About Me section at the bottom -->
+        <SectionContainer id="about-me" class="mt-12">
             <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
                 <MaletaIcon class="size-8" />
                 About Me
-                <AboutMe />
             </h2>
+            <AboutMe />
         </SectionContainer>
     </main>
 </Layout>

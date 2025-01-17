@@ -100,9 +100,10 @@ const PROJECTS = [
                 <div class="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <ul class="flex gap-4">
                         {tags.map((tag) => (
-                            <li key={tag.name} class="flex items-center">
-                                <tag.icon class="w-8 h-8 text-white" />
-                            </li>
+                            <li class="flex items-center">
+  {tag.name}
+</li>
+
                         ))}
                     </ul>
                 </div>
