@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Ivan Pérez Hernández - Portafolio</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'slide-left': 'slideLeft 0.8s ease-out',
+                        'slide-right': 'slideRight 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideLeft: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-blue-400">Jorge Pérez Hernández</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#inicio" class="nav-link">Inicio</a>
+                        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+                        <a href="#currently" class="nav-link">Actualmente</a>
+                        <a href="#experiencia" class="nav-link">Experiencia</a>
+                        <a href="#skills" class="nav-link">Skills</a>
+                        <a href="#contacto" class="nav-link">Contacto</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun text-yellow-400"></i>
+                    </button>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+                <a href="#inicio" class="mobile-nav-link">Inicio</a>
+                <a href="#sobre-mi" class="mobile-nav-link">Sobre Mí</a>
+                <a href="#currently" class="mobile-nav-link">Actualmente</a>
+                <a href="#experiencia" class="mobile-nav-link">Experiencia</a>
+                <a href="#skills" class="mobile-nav-link">Skills</a>
+                <a href="#contacto" class="mobile-nav-link">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+        <div class="text-center animate-fade-in">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                    <i class="fas fa-code text-4xl text-white"></i>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Jorge Ivan Pérez Hernández
+                </h1>
+                <h2 class="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-6">
+                    Ingeniero en Software y Tecnologías Emergentes
+                </h2>
+                <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto mb-8 px-4">
+                    Desarrollador Full Stack apasionado por crear soluciones innovadoras y sistemas escalables
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 px-4">
+                    <a href="#contacto" class="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 text-center">
+                        Contáctame
+                    </a>
+                    <a href="#experiencia" class="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 text-center">
+                        Ver Proyectos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-blue-400 mb-4">Sobre Mí</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-left">
+                    <div class="bg-gray-700 p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-blue-400 mb-4">Mi Perfil</h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Ingeniero en Software y Tecnologías Emergentes con experiencia en desarrollo web (frontend y backend) y bases de datos. Motivado por la creación de sistemas eficientes y modernos.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            He trabajado con tecnologías de cómputo en la nube para implementar soluciones escalables, así como en el diseño de interfaces intuitivas y APIs robustas.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Me apasiona resolver retos técnicos, mantenerme en constante aprendizaje y colaborar en equipos dentro del desarrollo de software.
+                        </p>
+                    </div>
+                </div>
+                <div class="animate-slide-right">
+                    <div class="bg-gray-700 p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold text-blue-400 mb-6">Información Personal</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-blue-400 w-6"></i>
+                                <span class="ml-3">Baja California, México</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-blue-400 w-6"></i>
+                                <span class="ml-3">+52 646 160 9694</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-blue-400 w-6"></i>
+                                <span class="ml-3">jorgeivanperez91@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap text-blue-400 w-6"></i>
+                                <span class="ml-3">Ingeniero en Software y Tecnologías Emergentes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Section -->
+    <section id="currently" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-blue-400 mb-4">Actualmente</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Freelance -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-left">
+                    <div class="flex items-center mb-4 md:mb-6">
+                        <i class="fas fa-briefcase text-2xl sm:text-3xl text-blue-400 mr-3 md:mr-4"></i>
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Freelance Web Developer</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Actualmente trabajo en proyectos de clientes, como páginas estáticas, sistemas web, aplicaciones web, diseños para una experiencia de usuario óptima.
+                    </p>
+                </div>
+
+                <!-- Rick y Morty -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-right">
+                    <div class="flex items-center mb-4 md:mb-6">
+                        <i class="fas fa-tv text-2xl sm:text-3xl text-blue-400 mr-3 md:mr-4"></i>
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Rick y Morty Web</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Web para ver episodios de Rick y Morty sin fines de lucro, desarrollada con React y TailwindCSS, además de almacenamiento en la nube para los capítulos.
+                    </p>
+                    <a href="https://pepinillo-rick.web.app/" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Ver proyecto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia Section -->
+    <section id="experiencia" class="py-20 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-blue-400 mb-4">Experiencia Profesional</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            <div class="space-y-12">
+                <!-- Sistema de Gestión de Lavadoras -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Sistema de Gestión de Lavadoras</h3>
+                        <span class="text-gray-400 text-sm mt-2 md:mt-0">Mayo 2025 – Julio 2025</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-4">Desarrollador Full Stack</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Diseñé interfaces responsivas con el objetivo de migrar un sistema manual a uno digital, mejorando significativamente la eficiencia operativa.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Integré geolocalización con APIs de terceros para detectar y mostrar direcciones en mapas.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Incorporé carga de comprobantes de pago, gráficas interactivas con Chart.js y control de usuarios con historial de ajustes.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>El sistema fue desplegado en Azure para garantizar alta disponibilidad, escalabilidad y seguridad en la nube.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prácticas Profesionales UABC -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Prácticas Profesionales – Dpto. de Desarrollo de Sistemas, UABC</h3>
+                        <span class="text-gray-400 text-sm mt-2 md:mt-0">Febrero 2025 – Junio 2025</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-4">Desarrollador FullStack</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Colaboré como desarrollador backend utilizando Java con Spring Boot.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Desarrollé modelos de IA con enfoque en RAG (Retrieval-Augmented Generation) para construir chatbots inteligentes.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Participé en la integración y pruebas del sistema, optimizando precisión y rendimiento de respuestas.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Se trabajó bajo metodología ágil Scrum, participando en dailies, retrospectivas y entregas iterativas.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Servicio Social IIDE -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Servicio Social – IIDE, UABC</h3>
+                        <span class="text-gray-400 text-sm mt-2 md:mt-0">Septiembre 2024 – Diciembre 2024</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-4">Soporte Técnico y Mantenimiento</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Apoyo y mantenimiento de servidores y sistemas web en el Instituto de Investigación y Desarrollo Educativo.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Gestión y administración de infraestructura tecnológica educativa.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Colaboración en el desarrollo y mantenimiento de sistemas educativos.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Dog Breed Prediction -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Dog Breed Prediction</h3>
+                        <span class="text-gray-400 text-sm mt-2 md:mt-0">Agosto 2023 – Diciembre 2023</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-4">Desarrollador de IA</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Desarrollé un sistema de red neuronal que aprendió a detectar razas de perros en imágenes con 70% de efectividad.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Implementé algoritmos de machine learning para clasificación de imágenes.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Optimicé el rendimiento del modelo para mejorar la precisión de detección.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AllGates -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">AllGates</h3>
+                        <span class="text-gray-400 text-sm mt-2 md:mt-0">Junio 2024 – Agosto 2024</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-4">Desarrollador FullStack</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Desarrollé una plataforma web administrativa para la gestión de flotillas de vehículos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Implementé módulos clave como: control de propietarios, conductores, vehículos, contratos, cobros, mantenimientos, usuarios y métricas.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Diseñé interfaces responsivas y dinámicas con TailwindCSS, enfocándome en la usabilidad y en la visualización clara de datos críticos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Integré filtros avanzados y gráficos dinámicos para análisis financiero y de operaciones, mejorando la toma de decisiones.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Desarrollé APIs REST con Node.js para manejar operaciones CRUD seguras y eficientes.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-600">
+                        <a href="https://allgatesdemo.onrender.com/" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Ver proyecto (admin@admin.com / admin)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hotel Costa Ensenada -->
+                <div class="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg animate-slide-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-blue-400">Hotel Costa Ensenada</h3>
+                        <span class="text-gray-400 text-sm mt-2 md:mt-0">Noviembre 2023 – Febrero 2024</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-4">Desarrollador FullStack</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Diseñé y desarrollé un sistema web modular para la gestión integral del hotel, optimizando los procesos operativos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Implementé funcionalidades clave como calendario de reservas, control de cobros, gestión de recepción, panel de configuración, estadísticas y generación de reportes.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Creé interfaces intuitivas y eficientes, priorizando la experiencia del usuario y la usabilidad del sistema.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                            <span>Integré APIs en el frontend para conectar servicios externos, asegurando una comunicación fluida con el backend y mejorando la funcionalidad general del sistema.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-gray-600">
+                        <a href="https://palegreen-crow-554205.hostingersite.com/" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Ver proyecto (admin / admin)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-blue-400 mb-4">Skills & Tecnologías</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="bg-gray-700 p-6 rounded-lg animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-palette text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold text-blue-400">Frontend</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">React</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Next.js</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">HTML5/CSS</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">JavaScript</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">TypeScript</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-gray-700 p-6 rounded-lg animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-server text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold text-blue-400">Backend</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Java (Spring Boot)</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Node.js</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">PHP</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">.NET Core (C#)</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases & Cloud -->
+                <div class="bg-gray-700 p-6 rounded-lg animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-database text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold text-blue-400">Bases de Datos & Cloud</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">MySQL</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">PostgreSQL</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Microsoft Azure</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Google Cloud</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metodologías & Otros -->
+                <div class="bg-gray-700 p-6 rounded-lg animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-tasks text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-semibold text-blue-400">Metodologías & Otros</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Scrum</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Git</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">REST APIs</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Inglés (A2)</span>
+                            <div class="w-20 bg-gray-600 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-blue-400 mb-4">Contacto</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="animate-slide-left">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-6">Información de Contacto</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-300 font-medium">Teléfono</p>
+                                <p class="text-gray-400">+52 646 160 9694</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-300 font-medium">Email</p>
+                                <p class="text-gray-400">jorgeivanperez91@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-300 font-medium">Ubicación</p>
+                                <p class="text-gray-400">Baja California, México</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slide-right">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-6">Envíame un Mensaje</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-gray-100"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors duration-300">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 Jorge Ivan Pérez Hernández. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.remove('dark');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            const isDark = body.classList.contains('dark');
+            
+            if (isDark) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Active navigation link highlighting
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-400');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-blue-400');
+                }
+            });
+        });
+
+        // Contact form functionality with SweetAlert
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Show loading state
+            Swal.fire({
+                title: 'Enviando mensaje...',
+                text: 'Por favor espera un momento',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+            
+            // Simulate email sending (in a real implementation, you would use a backend service)
+            setTimeout(() => {
+                // Create mailto link
+                const mailtoLink = `mailto:jorgeivanperez91@gmail.com?subject=Mensaje de ${nombre}&body=Nombre: ${nombre}%0D%0AEmail: ${email}%0D%0A%0D%0AMensaje:%0D%0A${mensaje}`;
+                
+                // Open default email client
+                window.open(mailtoLink);
+                
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Mensaje enviado!',
+                    text: 'Tu mensaje ha sido enviado correctamente. Te responderé pronto.',
+                    confirmButtonColor: '#3B82F6',
+                    confirmButtonText: 'Entendido'
+                });
+                
+                // Reset form
+                contactForm.reset();
+            }, 2000);
+        });
+    </script>
+
+    <style>
+        .nav-link, .mobile-nav-link {
+            @apply text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300;
+        }
+        
+        .mobile-nav-link {
+            @apply block px-3 py-2 rounded-md text-base font-medium;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #374151;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3B82F6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563EB;
+        }
+
+        /* Light mode styles */
+        body:not(.dark) {
+            @apply bg-gray-100 text-gray-900;
+        }
+
+        body:not(.dark) nav {
+            @apply bg-gray-100/95 border-gray-300;
+        }
+
+        body:not(.dark) .bg-gray-800 {
+            @apply bg-white;
+        }
+
+        body:not(.dark) .bg-gray-700 {
+            @apply bg-gray-100;
+        }
+
+        body:not(.dark) .text-gray-300 {
+            @apply text-gray-700;
+        }
+
+        body:not(.dark) .text-gray-400 {
+            @apply text-gray-600;
+        }
+
+        body:not(.dark) .border-gray-700 {
+            @apply border-gray-300;
+        }
+
+        body:not(.dark) .border-gray-600 {
+            @apply border-gray-400;
+        }
+    </style>
+</body>
+</html> 
